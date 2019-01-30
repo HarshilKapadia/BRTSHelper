@@ -1,0 +1,48 @@
+{"stationData": {
+  "stations" : [
+  {
+    "name": "L.D. Engg College",
+    "latitide": "23.0338",
+    "longitude": "72.5466"
+  },
+    {
+      "name": "Chandkheda",
+      "latitide": "23.1116",
+      "longitude": "72.5728"
+    },
+    {
+      "name": "DCIS Circle",
+      "latitide": "23.1307",
+      "longitude": "72.5850"
+    },
+    {
+      "name": "Kalupur",
+      "latitide": "23.0283",
+      "longitude": "72.5937"
+    },
+    {
+      "name": "Sabarmati",
+      "latitide": "23.0860",
+      "longitude": "23.0860"
+    },
+    {
+      "name": "Vishwakarma Engg College",
+      "latitide": "23.1069",
+      "longitude": "72.5949"
+    },
+    {
+      "name": "Geeta Mandir",
+      "latitide": "23.0145",
+      "longitude": "72.5929"
+    },
+    {
+      "name": "Delhi Darwaja",
+      "latitide": "23.0378",
+      "longitude": "72.5880"
+    },
+    {
+      "name": "Visat",
+      "latitide": "23.0974",
+      "longitude": "72.5886"
+    }
+  ]}}

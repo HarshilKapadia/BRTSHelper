@@ -1,0 +1,26 @@
+{
+  "routeData":
+  {
+    "routes":[
+
+      {
+        "intermediates":"8",
+        "stations":["DCIS Circle", "Kalupur","Sabarmati","Vishwakarma Engg College","Chandkheda","L.D. Engg College","Geeta Mandir","Delhi Darwaja"]
+      },
+
+      {
+        "intermediates":"5",
+        "stations" : ["Kalupur","Sabarmati","Vishwakarma Engg College","Chandkheda","L.D. Engg College"]
+      },
+
+    {
+      "intermediates":"4",
+      "stations":["L.D. Engg College","Geeta Mandir","Delhi Darwaja", "Visat"]
+    },
+      {
+        "intermediates":"4",
+        "stations":["Sabarmati","Vishwakarma Engg College","Chandkheda","L.D. Engg College"]
+      }
+    ]
+  }
+}

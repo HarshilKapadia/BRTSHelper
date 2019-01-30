@@ -1,0 +1,68 @@
+{
+  "busData": {
+"busdata": [
+  {
+    "number":"1U",
+    "route_no":"0",
+    "src":"DCIS Circle",
+    "dest":"Delhi Darwaja"
+  },
+  {
+    "number":"1D",
+    "route_no":"0",
+    "src":"Delhi Darwaja",
+    "dest":"DCIS Circle"
+  },
+  {
+    "number":"2U",
+    "route_no":"1",
+    "src":"Kalupur",
+    "dest":"L.D. Engg College"
+  },
+  {
+    "number":"2D",
+    "route_no":"1",
+    "src":"L.D. Engg College",
+    "dest":"Kalupur"
+  },
+  {
+    "number":"3U",
+    "route_no":"2",
+    "src":"Chandkheda",
+    "dest":"Visat"
+  },
+  {
+    "number":"3D",
+    "route_no":"2",
+    "src":"Visat",
+    "dest":"Chandkheda"
+  },
+  {
+    "number":"4U",
+    "route_no":"3",
+    "src":"L.D. Engg College",
+    "dest":"Visat"
+  },
+  {
+    "number":"4D",
+    "route_no":"3",
+    "src":"Visat",
+    "dest":"L.D. Engg College"
+  },
+  {
+    "number":"5U",
+    "route_no":"4",
+    "src":"Sabarmati",
+    "dest":"L.D. Engg College"
+  },
+  {
+    "number":"5D",
+    "route_no":"4",
+    "src":"L.D. Engg College",
+    "dest":"Sabarmati"
+  }
+
+]
+}
+
+}
