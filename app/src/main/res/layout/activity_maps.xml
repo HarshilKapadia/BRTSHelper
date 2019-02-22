@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="BRTS Helper" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+        <SearchView
+            android:id="@+id/source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:iconifiedByDefault="false"
+            android:queryHint="Enter source.."
+
+            />
+
+        <SearchView
+            android:id="@+id/destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Enter dest.." />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginTop="100dp"
+            android:onClick="destEntered"
+            android:text="GetBuses" />
+
+        <ListView
+            android:id="@+id/temp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="150dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="450dp"
+        android:orientation="vertical">
+
+
+        <ListView
+            android:id="@+id/buses"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp" />
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="0dp"
+            tools:context=".MapsActivity" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

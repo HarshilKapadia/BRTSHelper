@@ -1,0 +1,171 @@
+{"stationData": {
+  "stations" : [
+    {
+      "name" : "Maninagar",
+      "latitude" : "22.9977",
+      "longitude" : "72.6114"
+    },
+    {
+      "name" : "Swaminarayan Mandir",
+      "latitude" : "22.9949",
+      "longitude" : "72.6117"
+    },
+    {
+      "name" : "Jawahar Chowk",
+      "latitude" : "22.9951829",
+      "longitude" : "72.6028533"
+    },
+    {
+      "name" : "Bhairavnath Road",
+      "latitude" : "22.9955",
+      "longitude" : "72.5991"
+    },
+    {
+      "name" : "Mira Cinema Char Rasta",
+      "latitude" : "22.9991",
+      "longitude" : "72.5932"
+    },
+    {
+      "name" : "Kankariya Telephone Exchange",
+      "latitude" : "23.0024",
+      "longitude" : "72.5928"
+    },
+    {
+      "name" : "Swaminarayan College",
+      "latitude" : "23.0014",
+      "longitude" : "72.5871"
+    },
+    {
+      "name" : "Vaikunth Dham Mandir",
+      "latitude" : "22.9998",
+      "longitude" : "72.5829"
+    },
+    {
+      "name" : "Danilimda Char Rasta",
+      "latitude" : "22.9965",
+      "longitude" : "72.5774"
+    },
+    {
+      "name" : "Chandranagar",
+      "latitude" : "22.9998",
+      "longitude" : "72.5581"
+    },
+    {
+      "name" : "Anjali",
+      "latitude" : "23.0038",
+      "longitude" : "72.5538"
+    },
+    {
+      "name" : "Dharnidhar Derasar",
+      "latitude" : "23.0082",
+      "longitude" : "72.5493"
+    },
+    {
+      "name" : "Manekbaug",
+      "latitude" : "23.0183",
+      "longitude" : "72.5440"
+    },
+    {
+      "name" : "Nehrunagar",
+      "latitude" : "23.0225",
+      "longitude" : "72.5416"
+    },
+    {
+      "name" : "Jhansi Ki Rani",
+      "latitude" : "23.0230",
+      "longitude" : "72.5363"
+    },
+    {
+      "name" : "Jodhpur Char Rasta",
+      "latitude" : "23.0253",
+      "longitude" : "72.5276"
+    },
+    {
+      "name" : "Star Bazaar",
+      "latitude" : "23.0262",
+      "longitude" : "72.5242"
+    },
+    {
+      "name" : "ISRO",
+      "latitude" : "23.0277",
+      "longitude" : "72.5177"
+    },
+    {
+      "name" : "Ramdevnagar",
+      "latitude" : "23.0275",
+      "longitude" : "72.5128"
+    },
+    {
+      "name" : "Iskcon Cross Road",
+      "latitude" : "23.0272",
+      "longitude" : "72.5085"
+    },
+    {
+      "name" : "Iskcon mandir",
+      "latitude" : "23.0275",
+      "longitude" : "72.5049"
+    },
+    {
+      "name" : "Antariksh Colony",
+      "latitude" : "23.0278",
+      "longitude" : "72.5009"
+    },
+    {
+      "name" : "Ashok Vatika",
+      "latitude" : "23.0299274",
+      "longitude" : "72.474874"
+    },
+    {
+      "name" : "Jayantilal Park",
+      "latitude" : "23.0284",
+      "longitude" : "72.4910"
+    },
+    {
+      "name" : "Swagat Bungalow",
+      "latitude" : "23.0279",
+      "longitude" : "72.4859"
+    },
+    {
+      "name" : "Ambli Gam",
+      "latitude" : "23.0265",
+      "longitude" : "72.4822"
+    },
+    {
+      "name" : "Bopal Approach",
+      "latitude" : "23.0258",
+      "longitude" : "72.4779"
+    },
+    {
+      "name" : "Samarpan Bungalows",
+      "latitude" : "23.0291",
+      "longitude" : "72.4762"
+    },
+    {
+      "name" : "Bhavya Park",
+      "latitude" : "23.0310",
+      "longitude" : "72.4725"
+    },
+    {
+      "name" : "Sterling City",
+      "latitude" : "23.0329173",
+      "longitude" : "72.4657213"
+    },
+    {
+      "name" : "Bopal Gam",
+      "latitude" : "23.0341",
+      "longitude" : "72.4642"
+    },
+    {
+      "name" : "Little Wings",
+      "latitude" : "23.0323597",
+      "longitude" : "72.457167"
+    },
+    {
+      "name" : "Ghuma Gam",
+      "latitude" : "23.0310",
+      "longitude" : "72.4482"
+    }
+
+  ]
+}
+}

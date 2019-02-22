@@ -1,0 +1,371 @@
+{
+  "buses":
+  [
+    {
+        "number":"1D",
+        "source":"Maninagar",
+        "destination":"Ghuma Gam",
+        "route":
+        [
+            {
+            "station": "Maninagar",
+            "arr_time": 600,
+            "dep_time": 600
+            },
+            {
+            "station": "Swaminarayan Mandir",
+            "arr_time": 601,
+            "dep_time": 601
+            },
+            {
+            "station": "Jawahar Chowk",
+            "arr_time": 602,
+            "dep_time": 602
+            },
+            {
+            "station": "Bhairavnath Road",
+            "arr_time": 604,
+            "dep_time": 604
+            },
+            {
+            "station": "Mira Cinema Char Rasta",
+            "arr_time": 605,
+            "dep_time": 605
+            },
+            {
+            "station": "Kankariya Telephone Exchange",
+            "arr_time": 606,
+            "dep_time": 606
+            },
+            {
+            "station": "Swaminarayan College",
+            "arr_time": 608,
+            "dep_time": 608
+            },
+            {
+            "station": "Vaikunth Dham Mandir",
+            "arr_time": 609,
+            "dep_time": 609
+            },
+            {
+            "station": "Danilimda Char Rasta",
+            "arr_time": 610,
+            "dep_time": 610
+            },
+            {
+            "station": "Khodiyarnagar",
+            "arr_time": 612,
+            "dep_time": 612
+            },
+            {
+            "station": "Chandranagar",
+            "arr_time": 615,
+            "dep_time": 615
+            },
+            {
+            "station": "Anjali",
+            "arr_time": 617,
+            "dep_time": 617
+            },
+            {
+            "station": "Dharnidhar Derasar",
+            "arr_time": 618,
+            "dep_time": 618
+            },
+            {
+            "station": "Manekbaug",
+            "arr_time": 621,
+            "dep_time": 621
+            },
+            {
+            "station": "Nehrunagar",
+            "arr_time": 622,
+            "dep_time": 622
+            },
+            {
+            "station": "Jhansi Ki Rani",
+            "arr_time": 624,
+            "dep_time": 624
+            },
+            {
+            "station": "Shivranjani",
+            "arr_time": 625,
+            "dep_time": 625
+            },
+            {
+            "station": "Jodhpur Char Rasta",
+            "arr_time": 626,
+            "dep_time": 626
+            },
+            {
+            "station": "Star Bazaar",
+            "arr_time": 627,
+            "dep_time": 627
+            },
+            {
+            "station": "ISRO",
+            "arr_time": 628,
+            "dep_time": 628
+            },
+            {
+            "station": "Ramdevnagar",
+            "arr_time": 629,
+            "dep_time": 629
+            },
+            {
+            "station": "Iskcon Cross Road",
+            "arr_time": 631,
+            "dep_time": 631
+            },
+            {
+            "station": "Iskcon mandir",
+            "arr_time": 631,
+            "dep_time": 631
+            },
+            {
+            "station": "Antariksh Colony",
+            "arr_time": 632,
+            "dep_time": 632
+            },
+            {
+            "station": "Ashok Vatika",
+            "arr_time": 634,
+            "dep_time": 634
+            },
+            {
+            "station": "Jayantilal Park",
+            "arr_time": 635,
+            "dep_time": 635
+            },
+            {
+            "station": "Swagat Bungalow",
+            "arr_time": 636,
+            "dep_time": 636
+            },
+            {
+            "station": "Ambli Gam",
+            "arr_time": 637,
+            "dep_time": 637
+            },
+            {
+            "station": "Bopal Approach",
+            "arr_time": 638,
+            "dep_time": 638
+            },
+            {
+            "station": "Samarpan Bungalows",
+            "arr_time": 639,
+            "dep_time": 639
+            },
+            {
+            "station": "Bhavya Park",
+            "arr_time": 640,
+            "dep_time": 640
+            },
+            {
+            "station": "Sterling City",
+            "arr_time": 641,
+            "dep_time": 641
+            },
+            {
+            "station": "Bopal Gam",
+            "arr_time": 642,
+            "dep_time": 642
+            },
+            {
+            "station": "Little Wings",
+            "arr_time": 643,
+            "dep_time": 643
+            },
+            {
+            "station": "Ghuma Gam",
+            "arr_time": 647,
+            "dep_time": 647
+            }
+        ]
+    },
+    {
+      "number":"1D",
+      "source":"Maninagar",
+      "destination":"Ghuma Gam",
+      "route":[
+            {
+            "station": "Maninagar",
+            "arr_time": 612,
+            "dep_time": 612
+            },
+            {
+            "station": "Swaminarayan Mandir",
+            "arr_time": 613,
+            "dep_time": 613
+            },
+            {
+            "station": "Jawahar Chowk",
+            "arr_time": 614,
+            "dep_time": 614
+            },
+            {
+            "station": "Bhairavnath Road",
+            "arr_time": 616,
+            "dep_time": 616
+            },
+            {
+            "station": "Mira Cinema Char Rasta",
+            "arr_time": 617,
+            "dep_time": 617
+            },
+            {
+            "station": "Kankariya Telephone Exchange",
+            "arr_time": 618,
+            "dep_time": 618
+            },
+            {
+            "station": "Swaminarayan College",
+            "arr_time": 620,
+            "dep_time": 620
+            },
+            {
+            "station": "Vaikunth Dham Mandir",
+            "arr_time": 621,
+            "dep_time": 621
+            },
+            {
+            "station": "Danilimda Char Rasta",
+            "arr_time": 622,
+            "dep_time": 622
+            },
+            {
+            "station": "Khodiyarnagar",
+            "arr_time": 624,
+            "dep_time": 624
+            },
+            {
+            "station": "Chandranagar",
+            "arr_time": 627,
+            "dep_time": 627
+            },
+            {
+            "station": "Anjali",
+            "arr_time": 629,
+            "dep_time": 629
+            },
+            {
+            "station": "Dharnidhar Derasar",
+            "arr_time": 630,
+            "dep_time": 630
+            },
+            {
+            "station": "Manekbaug",
+            "arr_time": 633,
+            "dep_time": 633
+            },
+            {
+            "station": "Nehrunagar",
+            "arr_time": 634,
+            "dep_time": 634
+            },
+            {
+            "station": "Jhansi Ki Rani",
+            "arr_time": 636,
+            "dep_time": 636
+            },
+            {
+            "station": "Shivranjani",
+            "arr_time": 637,
+            "dep_time": 637
+            },
+            {
+            "station": "Jodhpur Char Rasta",
+            "arr_time": 638,
+            "dep_time": 638
+            },
+            {
+            "station": "Star Bazaar",
+            "arr_time": 639,
+            "dep_time": 639
+            },
+            {
+            "station": "ISRO",
+            "arr_time": 640,
+            "dep_time": 640
+            },
+            {
+            "station": "Ramdevnagar",
+            "arr_time": 641,
+            "dep_time": 641
+            },
+            {
+            "station": "Iskcon Cross Road",
+            "arr_time": 643,
+            "dep_time": 643
+            },
+            {
+            "station": "Iskcon mandir",
+            "arr_time": 643,
+            "dep_time": 643
+            },
+            {
+            "station": "Antariksh Colony",
+            "arr_time": 644,
+            "dep_time": 644
+            },
+            {
+            "station": "Ashok Vatika",
+            "arr_time": 646,
+            "dep_time": 646
+            },
+            {
+            "station": "Jayantilal Park",
+            "arr_time": 647,
+            "dep_time": 647
+            },
+            {
+            "station": "Swagat Bungalow",
+            "arr_time": 648,
+            "dep_time": 648
+            },
+            {
+            "station": "Ambli Gam",
+            "arr_time": 649,
+            "dep_time": 649
+            },
+            {
+            "station": "Bopal Approach",
+            "arr_time": 650,
+            "dep_time": 650
+            },
+            {
+            "station": "Samarpan Bungalows",
+            "arr_time": 651,
+            "dep_time": 651
+            },
+            {
+            "station": "Bhavya Park",
+            "arr_time": 652,
+            "dep_time": 652
+            },
+            {
+            "station": "Sterling City",
+            "arr_time": 653,
+            "dep_time": 653
+            },
+            {
+            "station": "Bopal Gam",
+            "arr_time": 654,
+            "dep_time": 654
+            },
+            {
+            "station": "Little Wings",
+            "arr_time": 655,
+            "dep_time": 655
+            },
+            {
+            "station": "Ghuma Gam",
+            "arr_time": 659,
+            "dep_time": 659
+            }
+      ]
+
+      }
+  ]
+}

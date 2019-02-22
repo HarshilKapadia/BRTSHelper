@@ -1,0 +1,34 @@
+{
+  "busdata":
+  {
+    "buses":[
+      {
+        "busId":"0",
+        "routeId":"0",
+        "busNumber":"1D",
+        "no_of_trips":"2",
+        "arr_at_src":["2305", "1000"],
+        "dep_from_src":["2307", "1002"]
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ]
+
+  }
+}
