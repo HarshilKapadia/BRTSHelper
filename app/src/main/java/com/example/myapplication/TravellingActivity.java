@@ -13,6 +13,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -25,11 +27,18 @@ public class TravellingActivity extends AppCompatActivity {
     Station stations[];
     int no_of_stations;
     ArrayList<String> routeStationNames;
+
+    //temporary
+    ListView distance;
+    ArrayList<String> al;
+    ArrayAdapter<String> arrayAdapter;
+    int j=0,k=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travelling2);
         //txtLat = (TextView) findViewById(R.id.textview1);
+
         stations=Station.getStations(getAssets());
         SharedPreferences sharedPreferences;
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -37,10 +46,48 @@ public class TravellingActivity extends AppCompatActivity {
         journey = (ArrayList<String>) getIntent().getSerializableExtra("journeyNodes");
         routeStationNames=(ArrayList<String>) getIntent().getSerializableExtra("routeStationNames");
         no_of_stations = sharedPreferences.getInt("no_of_stations", 0);
+
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                int i=0;
+                int temp=0;
+                distance= findViewById(R.id.progress);
+                al=new ArrayList<String>();
+                for(int i=0;i<no_of_stations;i++)
+                {
+                    Log.i("station",stations[i].name+" "+routeStationNames.get(j));
+                    if((stations[i].name).equalsIgnoreCase(routeStationNames.get(j)))
+                    {
+                        Log.i("distance",Float.toString(distFrom(stations[i].latitude,stations[i].longnitude, location.getLatitude(),location.getLongitude())));
+                        if(distFrom(stations[i].latitude,stations[i].longnitude, location.getLatitude(),location.getLongitude())>50) {
+
+                            al.add(k, stations[i].name + "\n" + String.format("%,.2f", ((distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude())/1000)))+"km");
+                            Log.i("locationchanged", stations[i].name + "\n" + distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude()));
+                            k++;
+                            j++;
+                        }
+                        else
+                        {
+                            routeStationNames.remove(k);
+                            if(routeStationNames.size()==0)
+                            {
+                                TextView textView=findViewById(R.id.textView4);
+                                textView.setText("YOU HAVE REACHED TO YOUR DESTINATION.");
+                            }
+
+                        }
+
+                    }
+                    if(j==routeStationNames.size()) {
+                        j=0;k=0;
+                        break;
+                    }
+                }
+
+                arrayAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,al);
+                distance.setAdapter(arrayAdapter);
+
+                /*int i=1;
                 while(i<routeStationNames.size())
                 {
                     int j;float dist;
@@ -52,13 +99,13 @@ public class TravellingActivity extends AppCompatActivity {
                     if(j==no_of_stations)
                         j--;
                     int count = 0;
-                    while(count++<10000 && (dist = distFrom(stations[j].latitude,stations[j].longnitude, location.getLatitude(),location.getLongitude()))>200)
+                    if((dist = distFrom(stations[j].latitude,stations[j].longnitude, location.getLatitude(),location.getLongitude()))>50)
                     {
                         if(routeStationNames.size()-i>=2)
                         {
                             //Display next two nodes
                             TextView nextNode = (TextView)findViewById(R.id.textView);
-
+                            Log.i("abcd","travelling");
                             nextNode.setText("Station name: "+routeStationNames.get(i)+"\nDistance: "+Float.toString(dist));
 
 
@@ -69,9 +116,15 @@ public class TravellingActivity extends AppCompatActivity {
                             TextView nextNode = (TextView)findViewById(R.id.textView);
                             nextNode.setText("Station name: "+routeStationNames.get(i)+"\nDistance: "+Float.toString(dist));
                         }
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                     i++;
-                }
+                }*/
+
             }
 
             @Override
@@ -100,7 +153,7 @@ public class TravellingActivity extends AppCompatActivity {
             return;
         }
 
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,0,locationListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,10000,10,locationListener);
 
     }
     public static float distFrom(double lat1, double lng1, double lat2, double lng2) {

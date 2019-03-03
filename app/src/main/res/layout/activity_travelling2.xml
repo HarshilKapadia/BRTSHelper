@@ -6,16 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".TravellingActivity">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:text="TextView" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="588dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="122dp">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
+        <ListView
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="489dp"
+            android:layout_marginTop="0dp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

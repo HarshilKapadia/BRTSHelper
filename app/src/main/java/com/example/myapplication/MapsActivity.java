@@ -212,7 +212,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     ListView listView;
     ArrayList<String> list;
-    ArrayAdapter<String > adapter;
+    ArrayAdapter<String> adapter;
     ArrayList<String> routeStationNames=new ArrayList<>();
 
 
@@ -291,6 +291,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onItemClick(AdapterView<?> parent, View clickView,
                                     int position, long id) {
                 routes.clear();
+                routeStationNames.clear();
                 int i;
                 for(i=0;i<r[busesAvailable.get(position).routeId].no_of_nodes;i++)
                     if(r[busesAvailable.get(position).routeId].nodes[i].equals(mySrc))
@@ -301,6 +302,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     routeStationNames.add(r[busesAvailable.get(position).routeId].nodes[i]);
                     i++;
                 }
+                routeStationNames.add(r[busesAvailable.get(position).routeId].nodes[i]);
                 routes.add(r[busesAvailable.get(position).routeId].nodes[i]+"\nArrival: "+addMilitaryTime(busesAvailable.get(position).arr_at_src[tripsPossible[position]],r[busesAvailable.get(position).routeId].offset[i]));
                 i++;
                 /*ListView listofstation=(ListView) findViewById(R.id.route);
