@@ -51,12 +51,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     LocationManager locationManager;
     LocationListener locationListener;
-    int no_of_stations=33, no_of_bus=1, no_of_routes=1;
+    int no_of_stations=40, no_of_bus=4, no_of_routes=4;
     Station stations[];
     Bus b[];
     Route r[];
-    Integer routesPossible[]=new Integer[50], tripsPossible[]=new Integer[50];int countOfRoutes=0, countOfTrips=0;
+    Integer routesPossible[]=new Integer[5000], tripsPossible[]=new Integer[5000];int countOfRoutes=0, countOfTrips=0;
     int min=0;
+    ArrayList<String> tempDataRepresentation = new ArrayList<String>();
     @SuppressLint("MissingPermission")
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -218,6 +219,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void destEntered(View view) {
         busesAvailable.clear();
+        tempDataRepresentation.clear();
         destTextView = (SearchView) findViewById(R.id.destination);
         sourceTextView = (SearchView) findViewById(R.id.source);
         Log.i("destination",destTextView.getQuery().toString());
@@ -242,15 +244,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 int currentMin = (Calendar.getInstance().getTime().getMinutes())%60;
                 int currentTime = currentHr*100 + currentMin;
 
+                for(int j=0;j<r[i].no_of_nodes;j++) {
+                    if (r[i].nodes[j].equals(mySrc)) {
+                        srcNode = j;
+                        d = 0;
+                        break;
+                    }
+                }
                 for(int j=0;j<r[i].no_of_nodes;j++)
                 {
-                    if(d==1 && r[i].nodes[j].equals(mySrc))
-                    {
-                        srcNode=j;
-                        d=0;
-                        continue;
-                    }
-
                     if(d==0 && r[i].nodes[j].equals(destTextView.getQuery().toString()))
                     {
                         Log.i("mysrc",mySrc);
@@ -267,6 +269,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                         Log.i("mysrc",mySrc);
                                         routesPossible[countOfRoutes++] = i;
                                         tripsPossible[countOfTrips++] = l;
+                                        tempDataRepresentation.add("Bus number: "+b[k].busNumber+"\nArrival: "+b[k].arr_at_src[l]);
+
                                     }
                                 }
                             }
@@ -282,7 +286,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 for (int i = 0; i < busesAvailable.size(); i++)
                     Log.i("Bus no: ", (busesAvailable.get(i).busNumber));
         final ListView listView = (ListView) findViewById(R.id.buses);
-        ArrayAdapter<Bus> arrayAdapter=new ArrayAdapter<Bus>(MapsActivity.this, android.R.layout.simple_list_item_1, busesAvailable);
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(MapsActivity.this, android.R.layout.simple_list_item_1, tempDataRepresentation);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

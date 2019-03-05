@@ -42,13 +42,13 @@
     },
     {
       "name" : "Danilimda Char Rasta",
-      "latitude" : "22.9965",
-      "longitude" : "72.5774"
+      "latitude" : "22.996588",
+      "longitude" : "72.577386"
     },
     {
       "name" : "Chandranagar",
-      "latitude" : "22.9998",
-      "longitude" : "72.5581"
+      "latitude" : "22.999847",
+      "longitude" : "72.558094"
     },
     {
       "name" : "Anjali",
@@ -164,6 +164,42 @@
       "name" : "Ghuma Gam",
       "latitude" : "23.0310",
       "longitude" : "72.4482"
+    },
+    {
+      "name" : "Chhipa Society",
+      "latitude" : "22.991744",
+      "longitude" : "72.581632"
+    },
+    {
+      "name" : "Danilimda Road",
+      "latitude" : "22.996127",
+      "longitude" : "72.579154"
+    },
+    {
+      "name" : "Khodiyarnagar",
+      "latitude" : "22.995555",
+      "longitude" : "72.570218"
+    },
+
+    {
+      "name" : "Chandola Lake",
+      "latitude" : "22.986598",
+      "longitude" : "72.582608"
+    },
+    {
+      "name" : "BRTS Workshop",
+      "latitude" : "22.982296",
+      "longitude" : "72.585722"
+    },
+    {
+      "name" : "Kashiram Textiles",
+      "latitude" : "22.976912",
+      "longitude" : "72.586757"
+    },
+    {
+      "name" : "Shivranjani",
+      "latitude" : "23.0243204",
+      "longitude" : "72.5290869"
     }
 
   ]

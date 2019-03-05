@@ -11,7 +11,7 @@ import java.io.InputStream;
 public class Route {
     int routeId, no_of_nodes;Integer offset[];
     String nodes[];
-    static int count=0, no_of_routes=1;
+    static int count=0, no_of_routes=4;
     static Route routes[] = new Route[no_of_routes];
     private Route(){}
     public static Route[] getRoutes(AssetManager asset)
@@ -29,10 +29,12 @@ public class Route {
                 JSONObject obj = new JSONObject(json);
                 JSONObject stobj = obj.getJSONObject("routedata");
                 JSONArray arr = stobj.getJSONArray("routes");
-                for(int i=0;i<no_of_routes;i++)
+                for(int i=0;i<4;i++)
                 {
+                    Log.i("routeId", (Integer.toString( i)));
                     routes[i]=new Route();
                     routes[i].routeId=arr.getJSONObject(i).getInt("routeId");
+
                     routes[i].no_of_nodes=arr.getJSONObject(i).getInt("no_of_nodes");
                     Log.i("route", (Integer.toString( routes[i].no_of_nodes)));
                     JSONArray nodes = arr.getJSONObject(i).getJSONArray("nodes");
@@ -48,7 +50,9 @@ public class Route {
                 count=1;
             }
             catch(Exception e)
-            {}
+            {
+                Log.i("harshil", e.getMessage());
+            }
 
         }
 

@@ -33,6 +33,7 @@ public class TravellingActivity extends AppCompatActivity {
     ArrayList<String> al;
     ArrayAdapter<String> arrayAdapter;
     int j=0,k=0;
+    double tempLatitude,tempLongitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,34 +54,47 @@ public class TravellingActivity extends AppCompatActivity {
                 int temp=0;
                 distance= findViewById(R.id.progress);
                 al=new ArrayList<String>();
-                for(int i=0;i<no_of_stations;i++)
+                for(int j=0;j<routeStationNames.size();j++)
                 {
-                    Log.i("station",stations[i].name+" "+routeStationNames.get(j));
-                    if((stations[i].name).equalsIgnoreCase(routeStationNames.get(j)))
+                    for(int i=0;i<no_of_stations;i++)
                     {
-                        Log.i("distance",Float.toString(distFrom(stations[i].latitude,stations[i].longnitude, location.getLatitude(),location.getLongitude())));
-                        if(distFrom(stations[i].latitude,stations[i].longnitude, location.getLatitude(),location.getLongitude())>50) {
 
-                            al.add(k, stations[i].name + "\n" + String.format("%,.2f", ((distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude())/1000)))+"km");
-                            Log.i("locationchanged", stations[i].name + "\n" + distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude()));
-                            k++;
-                            j++;
-                        }
-                        else
+                        Log.i("station",stations[i].name+" "+routeStationNames.get(j));
+                        if((stations[i].name).equalsIgnoreCase(routeStationNames.get(j)))
                         {
-                            routeStationNames.remove(k);
-                            if(routeStationNames.size()==0)
+                            //Log.i("distance",Float.toString(distFrom(stations[i].latitude,stations[i].longnitude, location.getLatitude(),location.getLongitude())));
+                            for(int l=0;l<no_of_stations;l++)
                             {
-                                TextView textView=findViewById(R.id.textView4);
-                                textView.setText("YOU HAVE REACHED TO YOUR DESTINATION.");
+                                if((stations[l].name).equalsIgnoreCase(routeStationNames.get(j)))
+                                {
+                                    tempLatitude=stations[l].latitude;
+                                    tempLongitude=stations[i].longnitude;
+                                }
+                            }
+                            if(distFrom(tempLatitude,tempLongitude, location.getLatitude(),location.getLongitude())>10) {
+
+                                al.add(k, routeStationNames.get(j) + "\n" + String.format("%,.2f", ((distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude())/1000)))+"km");
+                                Log.i("locationchanged", stations[i].name + "\n" + distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude()));
+                                k++;
+                                //j++;
+                                break;
+                            }
+                            else
+                            {
+                                routeStationNames.remove(k);
+                                if(routeStationNames.size()==0)
+                                {
+                                    TextView textView=findViewById(R.id.textView4);
+                                    textView.setText("YOU HAVE REACHED TO YOUR DESTINATION.");
+                                }
+                                break;
                             }
 
                         }
-
-                    }
-                    if(j==routeStationNames.size()) {
-                        j=0;k=0;
-                        break;
+                        if(j==routeStationNames.size()) {
+                            j=0;k=0;
+                            break;
+                        }
                     }
                 }
 

@@ -21,7 +21,7 @@ public class Station {
     double longnitude;
     double latitude;
     String name;
-    static int no_of_stations =33 ;
+    static int no_of_stations =40 ;
     static Station stations[]=new Station[no_of_stations];
     static int count=0;
     private static ArrayList<String> stationNames = new ArrayList<>(no_of_stations);;

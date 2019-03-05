@@ -12,7 +12,7 @@ public class Bus {
     int busId, routeId;
     String busNumber;
     Integer arr_at_src[], dep_from_src[];int no_of_trips;
-    static int no_of_buses=1, count=0;
+    static int no_of_buses=4, count=0;
     static Bus[] buses = new Bus[no_of_buses];
     private Bus(){}
     public static Bus[] getBuses(AssetManager asset)
