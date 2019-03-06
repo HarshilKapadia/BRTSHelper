@@ -27,6 +27,7 @@ public class TravellingActivity extends AppCompatActivity {
     Station stations[];
     int no_of_stations;
     ArrayList<String> routeStationNames;
+    ArrayList<String> tempRouteStationNames;
 
     //temporary
     ListView distance;
@@ -47,6 +48,11 @@ public class TravellingActivity extends AppCompatActivity {
         journey = (ArrayList<String>) getIntent().getSerializableExtra("journeyNodes");
         routeStationNames=(ArrayList<String>) getIntent().getSerializableExtra("routeStationNames");
         no_of_stations = sharedPreferences.getInt("no_of_stations", 0);
+        tempRouteStationNames=(ArrayList<String>) getIntent().getSerializableExtra("routeStationNames");
+        for(int i=0;i<tempRouteStationNames.size();i++)
+        {
+            Log.i("temppp",tempRouteStationNames.get(i));
+        }
 
         locationListener = new LocationListener() {
             @Override
@@ -54,39 +60,43 @@ public class TravellingActivity extends AppCompatActivity {
                 int temp=0;
                 distance= findViewById(R.id.progress);
                 al=new ArrayList<String>();
-                for(int j=0;j<routeStationNames.size();j++)
+                j=0;
+                while(j<routeStationNames.size())
                 {
                     for(int i=0;i<no_of_stations;i++)
                     {
 
-                        Log.i("station",stations[i].name+" "+routeStationNames.get(j));
+                        Log.i("station i:",i+" "+stations[i].name+" j:"+j+" "+routeStationNames.get(j));
+
                         if((stations[i].name).equalsIgnoreCase(routeStationNames.get(j)))
                         {
-                            //Log.i("distance",Float.toString(distFrom(stations[i].latitude,stations[i].longnitude, location.getLatitude(),location.getLongitude())));
-                            for(int l=0;l<no_of_stations;l++)
-                            {
-                                if((stations[l].name).equalsIgnoreCase(routeStationNames.get(j)))
-                                {
-                                    tempLatitude=stations[l].latitude;
-                                    tempLongitude=stations[i].longnitude;
-                                }
-                            }
-                            if(distFrom(tempLatitude,tempLongitude, location.getLatitude(),location.getLongitude())>10) {
 
-                                al.add(k, routeStationNames.get(j) + "\n" + String.format("%,.2f", ((distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude())/1000)))+"km");
-                                Log.i("locationchanged", stations[i].name + "\n" + distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude()));
-                                k++;
-                                //j++;
+                            Log.i("distance",Float.toString(distFrom(stations[i].latitude,stations[i].longnitude, location.getLatitude(),location.getLongitude()))+""+stations[i].name);
+                            if(distFrom(stations[i].latitude,stations[i].longnitude, location.getLatitude(),location.getLongitude())>10) {
+                                Log.i("added",routeStationNames.get(j));
+                                al.add(routeStationNames.get(j) + "\n" + String.format("%,.2f", ((distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude())/1000)))+"km");
+                                Log.i("locationchanged", stations[i].name + "\n" + distFrom(stations[i].latitude, stations[i].longnitude, location.getLatitude(), location.getLongitude())+""+routeStationNames.get(j));
+
+                                j++;
                                 break;
                             }
                             else
                             {
-                                routeStationNames.remove(k);
+                                j=0;
+                                Log.i("removed",routeStationNames.get(j));
+                                routeStationNames.remove(0);
+
+
+                                for(int x=0;x<routeStationNames.size();x++)
+                                {
+                                    Log.i("insidetemppp",routeStationNames.get(x));
+                                }
                                 if(routeStationNames.size()==0)
                                 {
                                     TextView textView=findViewById(R.id.textView4);
                                     textView.setText("YOU HAVE REACHED TO YOUR DESTINATION.");
                                 }
+                                //k++;
                                 break;
                             }
 
@@ -167,7 +177,7 @@ public class TravellingActivity extends AppCompatActivity {
             return;
         }
 
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,10000,10,locationListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,10000,1,locationListener);
 
     }
     public static float distFrom(double lat1, double lng1, double lat2, double lng2) {

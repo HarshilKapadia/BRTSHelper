@@ -88,7 +88,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         a_hr+=b_hr;
         a_hr%=24;
         a=a_hr*100+ a_min;
-        Log.i("Timeaaaaa", Integer.toString(a));
         return a;
     }
     int flag=0;
@@ -222,55 +221,46 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         tempDataRepresentation.clear();
         destTextView = (SearchView) findViewById(R.id.destination);
         sourceTextView = (SearchView) findViewById(R.id.source);
-        Log.i("destination",destTextView.getQuery().toString());
-        Log.i("source",sourceTextView.getQuery().toString());
+        Log.i("destination", destTextView.getQuery().toString());
+        Log.i("source", sourceTextView.getQuery().toString());
 
-
-        mySrc=(sourceTextView.getQuery().toString().trim().length() > 0)?(sourceTextView.getQuery().toString()):stations[min].name;
+        if (destTextView.getQuery().toString().trim().equalsIgnoreCase(sourceTextView.getQuery().toString().trim())) {
+            Toast.makeText(getApplicationContext(), "Source and destination cannot be same.", Toast.LENGTH_LONG).show();
+        }
+        else{
+        mySrc = (sourceTextView.getQuery().toString().trim().length() > 0) ? (sourceTextView.getQuery().toString()) : stations[min].name;
 
         if (destTextView.getQuery().toString().trim().length() > 0) {
-            /*for (int i = 0; i < no_of_stations; i++) {
-                Log.i("Dest index:", destTextView.getText().toString());
-                if (stations[i].name.toString().equals(destTextView.getText().toString())) {
-                    d = i;
-                    Log.i("Dest index:", Integer.toString(d));
-                }
-            }*/
 
-            for(int i=0;i<no_of_routes;i++)
-            {
-                d=1;
-                int currentHr = (Calendar.getInstance().getTime().getHours())%24;
-                int currentMin = (Calendar.getInstance().getTime().getMinutes())%60;
-                int currentTime = currentHr*100 + currentMin;
 
-                for(int j=0;j<r[i].no_of_nodes;j++) {
+            for (int i = 0; i < no_of_routes; i++) {
+                d = 1;
+                int currentHr = (Calendar.getInstance().getTime().getHours()) % 24;
+                int currentMin = (Calendar.getInstance().getTime().getMinutes()) % 60;
+                int currentTime = currentHr * 100 + currentMin;
+                int j;
+                for (j = 0; j < r[i].no_of_nodes; j++) {
                     if (r[i].nodes[j].equals(mySrc)) {
                         srcNode = j;
                         d = 0;
                         break;
                     }
                 }
-                for(int j=0;j<r[i].no_of_nodes;j++)
-                {
-                    if(d==0 && r[i].nodes[j].equals(destTextView.getQuery().toString()))
-                    {
-                        Log.i("mysrc",mySrc);
-                        for(int k=0;k<no_of_bus;k++)
-                        {
-                            if (b[k].routeId == r[i].routeId)
-                            {
+                for (; j < r[i].no_of_nodes; j++) {
+                    if (d == 0 && r[i].nodes[j].equals(destTextView.getQuery().toString())) {
 
-                                for(int l=0;l<b[k].no_of_trips;l++)
-                                {
-                                    Log.i("mysrc",mySrc);
-                                    if(addMilitaryTime(b[k].arr_at_src[l],r[b[k].routeId].offset[srcNode])>currentTime) {
+                        for (int k = 0; k < no_of_bus; k++) {
+                            if (b[k].routeId == r[i].routeId) {
+
+                                for (int l = 0; l < b[k].no_of_trips; l++) {
+
+                                    if (addMilitaryTime(b[k].arr_at_src[l], r[b[k].routeId].offset[srcNode]) > currentTime) {
                                         busesAvailable.add(b[k]);
-                                        Log.i("mysrc",mySrc);
+                                        Log.i("mysrc", mySrc);
                                         routesPossible[countOfRoutes++] = i;
                                         tripsPossible[countOfTrips++] = l;
-                                        tempDataRepresentation.add("Bus number: "+b[k].busNumber+"\nArrival: "+b[k].arr_at_src[l]);
-
+                                        tempDataRepresentation.add("Bus number: " + b[k].busNumber + "\nArrival: " + b[k].arr_at_src[l]);
+                                        break;
                                     }
                                 }
                             }
@@ -280,13 +270,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
 
+
         }
 
 
-                for (int i = 0; i < busesAvailable.size(); i++)
-                    Log.i("Bus no: ", (busesAvailable.get(i).busNumber));
+        for (int i = 0; i < busesAvailable.size(); i++)
+            Log.i("Bus no: ", (busesAvailable.get(i).busNumber));
         final ListView listView = (ListView) findViewById(R.id.buses);
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(MapsActivity.this, android.R.layout.simple_list_item_1, tempDataRepresentation);
+        ArrayAdapter<Bus> arrayAdapter = new ArrayAdapter<Bus>(MapsActivity.this, android.R.layout.simple_list_item_1, busesAvailable);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -297,17 +288,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 routes.clear();
                 routeStationNames.clear();
                 int i;
-                for(i=0;i<r[busesAvailable.get(position).routeId].no_of_nodes;i++)
-                    if(r[busesAvailable.get(position).routeId].nodes[i].equals(mySrc))
+                for (i = 0; i < r[busesAvailable.get(position).routeId].no_of_nodes; i++)
+                    if (r[busesAvailable.get(position).routeId].nodes[i].equals(mySrc))
                         break;
-                while (!r[busesAvailable.get(position).routeId].nodes[i].equals(destTextView.getQuery().toString()) &&i<33)
-                {
-                    routes.add(r[busesAvailable.get(position).routeId].nodes[i]+"\nArrival: "+addMilitaryTime(busesAvailable.get(position).arr_at_src[tripsPossible[position]],r[busesAvailable.get(position).routeId].offset[i]));
+                while (!r[busesAvailable.get(position).routeId].nodes[i].equals(destTextView.getQuery().toString()) && i < 33) {
+                    routes.add(r[busesAvailable.get(position).routeId].nodes[i] + "\nArrival: " + addMilitaryTime(busesAvailable.get(position).arr_at_src[tripsPossible[position]], r[busesAvailable.get(position).routeId].offset[i]));
                     routeStationNames.add(r[busesAvailable.get(position).routeId].nodes[i]);
                     i++;
                 }
                 routeStationNames.add(r[busesAvailable.get(position).routeId].nodes[i]);
-                routes.add(r[busesAvailable.get(position).routeId].nodes[i]+"\nArrival: "+addMilitaryTime(busesAvailable.get(position).arr_at_src[tripsPossible[position]],r[busesAvailable.get(position).routeId].offset[i]));
+                routes.add(r[busesAvailable.get(position).routeId].nodes[i] + "\nArrival: " + addMilitaryTime(busesAvailable.get(position).arr_at_src[tripsPossible[position]], r[busesAvailable.get(position).routeId].offset[i]));
                 i++;
                 /*ListView listofstation=(ListView) findViewById(R.id.route);
                 ArrayAdapter<String> arrayAdapter1=new ArrayAdapter<String>(MapsActivity.this, android.R.layout.simple_list_item_1, routes);
@@ -315,7 +305,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 SharedPreferences sharedPreferences = getSharedPreferences("resources", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 LinkedHashSet<String> routesSet = new LinkedHashSet<String>(routes);
-                LinkedHashSet<String> routeStaions=new LinkedHashSet<>(routeStationNames);
+                LinkedHashSet<String> routeStaions = new LinkedHashSet<>(routeStationNames);
                 editor.putStringSet("journey", routesSet);
                 editor.putStringSet("routeStationNames", routeStaions);
                 editor.commit();
@@ -326,8 +316,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
         });
-
-
+    }
 
 
     }
